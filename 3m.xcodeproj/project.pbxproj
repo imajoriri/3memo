@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,13 @@
 		47AD33102416222A002FEBFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47AD330E2416222A002FEBFC /* LaunchScreen.storyboard */; };
 		47AD331B2416222B002FEBFC /* _mTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD331A2416222B002FEBFC /* _mTests.swift */; };
 		47AD33262416222B002FEBFC /* _mUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD33252416222B002FEBFC /* _mUITests.swift */; };
+		47AD333424162BF3002FEBFC /* MemoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD333324162BF3002FEBFC /* MemoDetailView.swift */; };
+		47AD3336241633E2002FEBFC /* MemoTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD3335241633E2002FEBFC /* MemoTagView.swift */; };
+		47AD33382416347D002FEBFC /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD33372416347D002FEBFC /* AppColor.swift */; };
+		47AD333A241634CF002FEBFC /* MemoListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD3339241634CF002FEBFC /* MemoListRowView.swift */; };
+		47AD333D24167F77002FEBFC /* RoundSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD333C24167F77002FEBFC /* RoundSegmentView.swift */; };
+		47AD333F24171935002FEBFC /* MultilineFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD333E24171935002FEBFC /* MultilineFieldView.swift */; };
+		47AD334224171B7C002FEBFC /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 47AD334124171B7C002FEBFC /* KeyboardObserving */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,12 @@
 		47AD33212416222B002FEBFC /* 3mUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3mUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47AD33252416222B002FEBFC /* _mUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _mUITests.swift; sourceTree = "<group>"; };
 		47AD33272416222B002FEBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47AD333324162BF3002FEBFC /* MemoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailView.swift; sourceTree = "<group>"; };
+		47AD3335241633E2002FEBFC /* MemoTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTagView.swift; sourceTree = "<group>"; };
+		47AD33372416347D002FEBFC /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		47AD3339241634CF002FEBFC /* MemoListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListRowView.swift; sourceTree = "<group>"; };
+		47AD333C24167F77002FEBFC /* RoundSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundSegmentView.swift; sourceTree = "<group>"; };
+		47AD333E24171935002FEBFC /* MultilineFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AD334224171B7C002FEBFC /* KeyboardObserving in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +117,8 @@
 			children = (
 				47AD330024162228002FEBFC /* AppDelegate.swift */,
 				47AD330224162228002FEBFC /* SceneDelegate.swift */,
-				47AD330724162228002FEBFC /* ContentView.swift */,
+				47AD33372416347D002FEBFC /* AppColor.swift */,
+				47AD333B24163551002FEBFC /* VIews */,
 				47AD33092416222A002FEBFC /* Assets.xcassets */,
 				47AD330E2416222A002FEBFC /* LaunchScreen.storyboard */,
 				47AD33112416222A002FEBFC /* Info.plist */,
@@ -139,6 +154,19 @@
 			path = 3mUITests;
 			sourceTree = "<group>";
 		};
+		47AD333B24163551002FEBFC /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				47AD330724162228002FEBFC /* ContentView.swift */,
+				47AD3339241634CF002FEBFC /* MemoListRowView.swift */,
+				47AD3335241633E2002FEBFC /* MemoTagView.swift */,
+				47AD333324162BF3002FEBFC /* MemoDetailView.swift */,
+				47AD333C24167F77002FEBFC /* RoundSegmentView.swift */,
+				47AD333E24171935002FEBFC /* MultilineFieldView.swift */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +183,9 @@
 			dependencies = (
 			);
 			name = 3m;
+			packageProductDependencies = (
+				47AD334124171B7C002FEBFC /* KeyboardObserving */,
+			);
 			productName = 3m;
 			productReference = 47AD32FD24162228002FEBFC /* 3m.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +258,9 @@
 				Base,
 			);
 			mainGroup = 47AD32F424162227002FEBFC;
+			packageReferences = (
+				47AD334024171B7C002FEBFC /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
+			);
 			productRefGroup = 47AD32FE24162228002FEBFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,7 +307,13 @@
 				47AD330124162228002FEBFC /* AppDelegate.swift in Sources */,
 				47AD330624162228002FEBFC /* _m.xcdatamodeld in Sources */,
 				47AD330824162228002FEBFC /* ContentView.swift in Sources */,
+				47AD333F24171935002FEBFC /* MultilineFieldView.swift in Sources */,
+				47AD33382416347D002FEBFC /* AppColor.swift in Sources */,
+				47AD333D24167F77002FEBFC /* RoundSegmentView.swift in Sources */,
+				47AD333424162BF3002FEBFC /* MemoDetailView.swift in Sources */,
+				47AD333A241634CF002FEBFC /* MemoListRowView.swift in Sources */,
 				47AD330324162228002FEBFC /* SceneDelegate.swift in Sources */,
+				47AD3336241633E2002FEBFC /* MemoTagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +638,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		47AD334024171B7C002FEBFC /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		47AD334124171B7C002FEBFC /* KeyboardObserving */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47AD334024171B7C002FEBFC /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
+			productName = KeyboardObserving;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		47AD330424162228002FEBFC /* _m.xcdatamodeld */ = {
