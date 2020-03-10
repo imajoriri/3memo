@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
   @State var segmentSelection:Int = 0
+  @State var memoModel = MemoModel()
   
   var body: some View {
     NavigationView {
@@ -28,11 +29,11 @@ struct ContentView: View {
               .position(x: 110, y: -27)
             }.frame(height: 5)
             
-            ForEach(0..<11) {_ in
+            ForEach(self.memoModel.memos) {memo in
               NavigationLink(destination: MemoDetailView()) {
                 Group {
-                  MemoListRowView()
-                  .navigationBarBackButtonHidden(true)
+                  MemoListRowView(memo: memo)
+                    .navigationBarBackButtonHidden(true)
                 }
               }
               Divider()
@@ -53,7 +54,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

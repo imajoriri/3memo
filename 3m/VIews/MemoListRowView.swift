@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct MemoListRowView: View {
+  let memo:Memo
+  
   var body: some View {
     VStack(alignment: .leading) {
-      Text("コロナで政府の批判が溜まっていく")
+      Text(memo.fact)
         .fontWeight(.bold)
         .padding(.bottom, 0)
       HStack {
