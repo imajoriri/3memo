@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
   @State var segmentSelection:Int = 0
   @State var memoModel = MemoModel()
+  @State var memos:Array<Memo> = []
   
   var body: some View {
     NavigationView {
@@ -22,14 +23,14 @@ struct ContentView: View {
                 Capsule()
                   .fill(Color.gray.opacity(0.15))
                   .frame(width: 45, height: 37)
-                Text("25")
+                Text(String(self.memos.count))
                   .font(.system(size: 15.0))
                   .fontWeight(.bold)
               }
               .position(x: 110, y: -27)
             }.frame(height: 5)
             
-            ForEach(self.memoModel.memos) {memo in
+            ForEach(self.memos) {memo in
               NavigationLink(destination: MemoDetailView()) {
                 Group {
                   MemoListRowView(memo: memo)
@@ -50,6 +51,11 @@ struct ContentView: View {
         }
       }
     }
+    .onAppear(perform: {
+      MemoModel.getAllMemo() {memos in
+        self.memos = memos
+      }
+    })
   }
 }
 

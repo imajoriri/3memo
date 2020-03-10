@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 struct Memo: Identifiable {
-  var id:String = "id hoge"
+  var id:String
   var fact:String
   var abstruct:String
   var product:String
@@ -18,25 +18,26 @@ struct Memo: Identifiable {
 }
 
 class MemoModel {
-  let db = Firestore.firestore()
-  let memos:Array<Memo> = MemoModel.getAllMemo()
+  var db:Firestore = Firestore.firestore()
   
-  static func getAllMemo() -> Array<Memo> {
+  static func getAllMemo(complete: @escaping(Array<Memo>)->() ) {
     let me:UserModel = UserModel.getMe()
     let db = Firestore.firestore()
+    var results:Array<Memo> = []
     
     db.collection("users").document(me.uuid).collection("memos").getDocuments { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
       } else {
-        print("print id")
         for document in querySnapshot!.documents {
-          print("\(document.documentID) => \(document.data())")
+
+          let fact = document.get("fact") as! String
+          // TODO: 非同期
+          results.append(Memo(id: "j", fact: fact, abstruct: "abs", product: "String"))
+          print(fact)
         }
       }
+      complete(results)
     }
-    return [
-      Memo(fact: "test", abstruct: "abs", product: "String")
-    ]
   }
 }
