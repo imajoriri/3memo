@@ -13,7 +13,7 @@ struct MemoListRowView: View {
     let hasFact = true
     let hasAbstraction = true
     let hasProduct = true
-    let insets:EdgeInsets = EdgeInsets(top: 18, leading: 0, bottom: 18, trailing: 0)
+    let insets:EdgeInsets = EdgeInsets(top: 14, leading: 0, bottom: 14, trailing: 0)
     var body: some View {
         VStack(spacing:10){
             HStack(){

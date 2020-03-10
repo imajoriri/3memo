@@ -12,7 +12,7 @@ import SwiftUI
 
 struct MemoTagView: View {
     let font:Font = .system(size: 12, weight: .bold, design: .default)
-    let tagPadding = EdgeInsets(top: 5, leading: 8, bottom: 5, trailing: 8)
+    let tagPadding = EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 6)
     let tagText:String
     let imageName:String
     let color:Color
@@ -26,8 +26,8 @@ struct MemoTagView: View {
                 .font(font)
         }
         .padding(tagPadding)
-        .background(color.opacity(0.1))
-        .cornerRadius(20)
+        .background(color.opacity(0.15))
+        .cornerRadius(6)
     }
 }
 
