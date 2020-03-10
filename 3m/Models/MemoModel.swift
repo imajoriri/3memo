@@ -31,13 +31,14 @@ class MemoModel {
         complete([])
       } else {
         for document in querySnapshot!.documents {
+          let id:String = document.documentID
           var fact = ""
           if let bindFact = document.get("fact") as? String { fact = bindFact }
           var abstruct = ""
           if let bindAbstruct = document.get("abstruct") as? String { abstruct = bindAbstruct }
           var product = ""
           if let bindProduct = document.get("product") as? String { product = bindProduct }
-          results.append(Memo(id: "j", fact: fact, abstruct: abstruct, product: product))
+          results.append(Memo(id: id, fact: fact, abstruct: abstruct, product: product))
         }
       }
       complete(results)
