@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
   @State var segmentSelection:Int = 0
-  @State var memoModel = MemoModel()
   @State var memos:Array<Memo> = []
   
   var body: some View {

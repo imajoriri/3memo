@@ -19,7 +19,7 @@ struct Memo: Identifiable {
 
 class MemoModel {
   var db:Firestore = Firestore.firestore()
-  
+
   static func getAllMemo(complete: @escaping(Array<Memo>)->() ) {
     let me:UserModel = UserModel.getMe()
     let db = Firestore.firestore()
@@ -28,13 +28,16 @@ class MemoModel {
     db.collection("users").document(me.uuid).collection("memos").getDocuments { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
+        complete([])
       } else {
         for document in querySnapshot!.documents {
-
-          let fact = document.get("fact") as! String
-          // TODO: 非同期
-          results.append(Memo(id: "j", fact: fact, abstruct: "abs", product: "String"))
-          print(fact)
+          var fact = ""
+          if let bindFact = document.get("fact") as? String { fact = bindFact }
+          var abstruct = ""
+          if let bindAbstruct = document.get("abstruct") as? String { abstruct = bindAbstruct }
+          var product = ""
+          if let bindProduct = document.get("product") as? String { product = bindProduct }
+          results.append(Memo(id: "j", fact: fact, abstruct: abstruct, product: product))
         }
       }
       complete(results)
