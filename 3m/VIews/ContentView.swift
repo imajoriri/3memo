@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
   @State var segmentSelection:Int = 0
+  @State var memos:Array<Memo> = []
   
   var body: some View {
     NavigationView {
@@ -21,18 +22,18 @@ struct ContentView: View {
                 Capsule()
                   .fill(Color.gray.opacity(0.15))
                   .frame(width: 45, height: 37)
-                Text("25")
+                Text(String(self.memos.count))
                   .font(.system(size: 15.0))
                   .fontWeight(.bold)
               }
               .position(x: 110, y: -27)
             }.frame(height: 5)
             
-            ForEach(0..<11) {_ in
-              NavigationLink(destination: MemoDetailView()) {
+            ForEach(self.memos) {memo in
+              NavigationLink(destination: MemoDetailView(memo: memo)) {
                 Group {
-                  MemoListRowView()
-                  .navigationBarBackButtonHidden(true)
+                  MemoListRowView(memo: memo)
+                    .navigationBarBackButtonHidden(true)
                 }
               }
               Divider()
@@ -42,6 +43,11 @@ struct ContentView: View {
           
         }
         .navigationBarTitle(Text("メモ"))
+        .navigationBarItems(trailing:
+          NavigationLink(destination: MemoDetailView(memo: Memo())) {
+            Text("作成")
+          }
+        )
         VStack {
           Spacer()
           RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象化", "プロダクト"])
@@ -49,11 +55,17 @@ struct ContentView: View {
         }
       }
     }
+    .onAppear(perform: {
+      MemoModel.getAllMemo() {memos in
+        self.memos = memos
+      }
+    })
+    
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
