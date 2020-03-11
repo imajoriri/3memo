@@ -50,7 +50,7 @@ struct ContentView: View {
         )
         VStack {
           Spacer()
-          RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象的", "プロダクト"])
+          RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象化", "プロダクト"])
             .padding(.bottom, 20.0)
         }
       }
