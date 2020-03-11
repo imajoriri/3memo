@@ -30,7 +30,7 @@ struct ContentView: View {
             }.frame(height: 5)
             
             ForEach(self.memos) {memo in
-              NavigationLink(destination: MemoDetailView()) {
+              NavigationLink(destination: MemoDetailView(memo: memo)) {
                 Group {
                   MemoListRowView(memo: memo)
                     .navigationBarBackButtonHidden(true)
@@ -43,6 +43,11 @@ struct ContentView: View {
           
         }
         .navigationBarTitle(Text("メモ"))
+        .navigationBarItems(trailing:
+          NavigationLink(destination: MemoDetailView(memo: Memo())) {
+            Text("作成")
+          }
+        )
         VStack {
           Spacer()
           RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象的", "プロダクト"])
@@ -55,6 +60,7 @@ struct ContentView: View {
         self.memos = memos
       }
     })
+    
   }
 }
 
