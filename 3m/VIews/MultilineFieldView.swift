@@ -51,7 +51,7 @@ class MultilineFieldCoordinator : NSObject, UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        onEditingChanged(false)
+        onEditingChanged(true)
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
