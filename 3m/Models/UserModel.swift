@@ -10,14 +10,14 @@ import Foundation
 import Firebase
 
 class UserModel {
-  let uuid:String //UIDevice.current.identifierForVendor!.uuidString
+  let uuid:String
   
   init(uuid:String) {
     self.uuid = uuid
   }
   
   static func getMe() -> UserModel {
-    let uuid = "first_user_id"
+    let uuid = UIDevice.current.identifierForVendor!.uuidString
     return UserModel(uuid: uuid)
   }
 }

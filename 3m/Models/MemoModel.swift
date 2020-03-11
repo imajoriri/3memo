@@ -14,9 +14,10 @@ struct Memo: Identifiable {
   var fact:String = ""
   var abstruct:String = ""
   var product:String = ""
-  var createdAt:Date = Date()
+  var createdAt:Date
   
-  init(id:String? = nil, fact:String = "", abstruct:String = "", product:String = "") {
+  init(id:String? = nil, fact:String = "", abstruct:String = "", product:String = "", createdAt:Date = Date()) {
+    self.createdAt = createdAt
     // idは初期値は自動生成
     if id == nil {
       self.id = createId(length: 10)
@@ -26,6 +27,7 @@ struct Memo: Identifiable {
     self.fact = fact
     self.abstruct = abstruct
     self.product = product
+    
   }
   
   func createId(length: Int) -> String {
@@ -55,7 +57,8 @@ class MemoModel {
     db.collection("users").document(me.uuid).collection("memos").document(memo.id).setData([
       "fact": memo.fact,
       "abstruct": memo.abstruct,
-      "product": memo.product
+      "product": memo.product,
+      "createdAt": memo.createdAt
     ]) { err in
         if let err = err {
             print("Error writing document: \(err)")
@@ -70,7 +73,7 @@ class MemoModel {
     let db = Firestore.firestore()
     var results:Array<Memo> = []
     
-    db.collection("users").document(me.uuid).collection("memos").addSnapshotListener { (querySnapshot, err) in
+    db.collection("users").document(me.uuid).collection("memos").order(by: "createdAt", descending: true).addSnapshotListener { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
         complete([])
@@ -85,7 +88,9 @@ class MemoModel {
           if let bindAbstruct = document.get("abstruct") as? String { abstruct = bindAbstruct }
           var product = ""
           if let bindProduct = document.get("product") as? String { product = bindProduct }
-          results.append(Memo(id: id, fact: fact, abstruct: abstruct, product: product))
+          var createdAt = Date()
+          if let bindCreatedAt = document.get("createdAt") as? Date { createdAt = bindCreatedAt }
+          results.append(Memo(id: id, fact: fact, abstruct: abstruct, product: product, createdAt: createdAt))
         }
       }
       print(String(results.count))

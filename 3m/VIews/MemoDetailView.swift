@@ -18,8 +18,6 @@ extension UIApplication {
 }
 
 struct MemoDetailView: View {
-  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   @State var memo:Memo
   
   private func endEditing() {
@@ -32,17 +30,23 @@ struct MemoDetailView: View {
       VStack(alignment: .leading) {
         Text("事実")
           .font(.headline).padding(.bottom, -5.0)
-        MultilineFieldView(text: self.$memo.fact)
+        MultilineFieldView(text: self.$memo.fact, onEditingChanged: {_ in
+          MemoModel.save(memo: self.memo)
+        })
           .frame(height: 100)
         
         Text("抽象的")
           .font(.headline).padding(.bottom, -5.0).padding(.top, 20)
-        MultilineFieldView(text: self.$memo.abstruct)
+        MultilineFieldView(text: self.$memo.abstruct, onEditingChanged: {_ in
+          MemoModel.save(memo: self.memo)
+        })
           .frame(height: 100)
         
         Text("プロダクト")
           .font(.headline).padding(.bottom, -5.0).padding(.top, 20)
-        MultilineFieldView(text: self.$memo.product)
+        MultilineFieldView(text: self.$memo.product, onEditingChanged: {_ in
+          MemoModel.save(memo: self.memo)
+        })
           .frame(height: 100)
         
         Spacer()
@@ -50,14 +54,14 @@ struct MemoDetailView: View {
       .padding()
       .keyboardObserving()
     }
-    .navigationBarItems(trailing:
-      Button(action: {
-//        self.presentationMode.wrappedValue.dismiss()
-        MemoModel.save(memo: self.memo)
-      }) {
-        Text("完了")
-      }
-    )
+//    .navigationBarItems(trailing:
+//      Button(action: {
+////        self.presentationMode.wrappedValue.dismiss()
+//        MemoModel.save(memo: self.memo)
+//      }) {
+//        Text("完了")
+//      }
+//    )
       .navigationBarTitle(Text(""))
       .onTapGesture {
         self.endEditing()
