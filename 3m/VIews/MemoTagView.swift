@@ -11,31 +11,29 @@ import SwiftUI
 import SwiftUI
 
 struct MemoTagView: View {
-    let text:String
-    let systemName:String
-    
+    let font:Font = .system(size: 12, weight: .bold, design: .default)
+    let tagPadding = EdgeInsets(top: 3, leading: 8, bottom: 3, trailing: 6)
+    let tagText:String
+    let imageName:String
+    let color:Color
     var body: some View {
-      HStack {
-        HStack {
-          Image(systemName: systemName)
-            .resizable()
-            .frame(width: 11.0, height: 11.0)
-          Text(text)
-            .offset(x: -5)
-            .font(.system(size: 11.0))
+        HStack(spacing:3){
+            Image(systemName: imageName)
+                .foregroundColor(color)
+                .font(.system(size: 11, weight: .semibold, design:.default))
+            Text(tagText)
+                .foregroundColor(color)
+                .font(font)
         }
-        .padding(.vertical, 4)
-        .padding(.horizontal, 8.0)
-      }
-      .background(AppColor.main.opacity(0.15))
-      .foregroundColor(AppColor.main)
-      .cornerRadius(20)
-  }
+        .padding(tagPadding)
+        .background(color.opacity(0.15))
+        .cornerRadius(6)
+    }
 }
 
 
 struct MemoTagView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoTagView(text: "事実", systemName: "pencil")
+        MemoTagView(tagText: "事実", imageName: "pencil", color: Color.green)
     }
 }

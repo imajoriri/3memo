@@ -55,4 +55,9 @@ extension Color {
         }
         return (r, g, b, a)
     }
+    //AppColor
+    static let appBlue = Color("AppBlue")
+    static let appGreen = Color("AppGreen")
+    static let appOrange = Color("AppOrange")
+    static let appPrimary = Color("AppPrimary")
 }
