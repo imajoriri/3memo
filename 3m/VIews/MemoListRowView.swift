@@ -27,7 +27,7 @@ struct MemoListRowView: View {
                     MemoTagView(tagText: "事実", imageName: "pencil", color: .appBlue)
                 }
                 if hasAbstraction{
-                    MemoTagView(tagText: "抽象化", imageName: "capslock.fill", color: .appOrange)
+                    MemoTagView(tagText: "抽象化", imageName: "lightbulb", color: .appOrange)
                 }
                 if hasProduct{
                     MemoTagView(tagText: "プロダクト", imageName: "desktopcomputer", color: .appGreen)
