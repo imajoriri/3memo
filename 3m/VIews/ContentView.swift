@@ -44,6 +44,9 @@ struct ContentView: View {
             return true
         }
     }
+    func displayMemos() -> Array<Memo> {
+        return self.memos.filter { self.isShowMemo(memo: $0) }
+    }
 
     var body: some View {
         NavigationView {
@@ -51,16 +54,14 @@ struct ContentView: View {
                 ZStack {
                     VStack{
                         List {
-                            ForEach(self.memos) {memo in
-                                if self.isShowMemo(memo: memo) {
-                                    VStack {
-                                        NavigationLink(destination: MemoDetailView(memo: memo)) {
-                                            EmptyView()
-                                        }
-                                        Group {
-                                            MemoListRowView(memo: memo)
-                                                .navigationBarBackButtonHidden(true)
-                                        }
+                            ForEach(self.displayMemos()) {memo in
+                                VStack {
+                                    NavigationLink(destination: MemoDetailView(memo: memo)) {
+                                        EmptyView()
+                                    }
+                                    Group {
+                                        MemoListRowView(memo: memo)
+                                            .navigationBarBackButtonHidden(true)
                                     }
                                 }
                             }
@@ -73,7 +74,7 @@ struct ContentView: View {
                             .frame(height: 0.5)
                             .foregroundColor(Color(UIColor.separator))
                         HStack{
-                            Text(String(self.memos.count)+"件のメモ")
+                            Text(String(self.displayMemos().count)+"件のメモ")
                                 .multilineTextAlignment(.center)
                                 .font(.system(size: 14))
                                 .padding(.leading,16)
