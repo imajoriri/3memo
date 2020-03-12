@@ -66,12 +66,6 @@ class MemoModel {
     let me:UserModel = UserModel.getMe()
     let db = Firestore.firestore()
     
-    // すべてからの場合は作成しない
-    // TODO: ここじゃないな
-    if memo.fact.isEmpty && memo.abstruct.isEmpty && memo.product.isEmpty {
-      return
-    }
-    
     db.collection("users").document(me.uuid).collection("memos").document(memo.id).setData([
       "fact": memo.fact,
       "abstruct": memo.abstruct,
