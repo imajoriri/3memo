@@ -17,10 +17,10 @@ struct SegmentedControlView: UIViewRepresentable {
     }
     func makeUIView(context: Context) -> BetterSegmentedControl {
         let font:UIFont = .systemFont(ofSize: 14, weight: .bold)
-        segmentControl.segments = LabelSegment.segments(withTitles: ["すべて","事実","抽象化","プロダクト"], numberOfLines: 1, normalBackgroundColor: .systemGroupedBackground, normalFont: font, normalTextColor: .secondaryLabel, selectedBackgroundColor: .systemIndigo, selectedFont: font, selectedTextColor: .white)
+        segmentControl.segments = LabelSegment.segments(withTitles: ["すべて","事実","抽象化","プロダクト"], numberOfLines: 1, normalBackgroundColor: .clear, normalFont: font, normalTextColor: .secondaryLabel, selectedBackgroundColor: .systemIndigo, selectedFont: font, selectedTextColor: .white)
         segmentControl.cornerRadius = 22
         segmentControl.indicatorViewInset = 4
-        segmentControl.backgroundColor = .systemGroupedBackground
+        segmentControl.backgroundColor = .tertiarySystemGroupedBackground
         segmentControl.addTarget(context.coordinator, action: #selector(Coordinator.updateIndex(sender:)), for: .valueChanged)
         return segmentControl
     }

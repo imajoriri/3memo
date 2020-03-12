@@ -17,7 +17,7 @@ struct MemoListRowView: View {
             HStack {
                 Text(self.memo.fact)
                     .font(.system(size: 16, weight: .semibold, design: .default))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(UIColor.label))
                     .lineLimit(1)
                 Spacer()
             }
