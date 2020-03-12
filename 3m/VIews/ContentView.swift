@@ -11,7 +11,14 @@ import SwiftUI
 struct ContentView: View {
   @State var segmentSelection:Int = 0
   @State var memos:Array<Memo> = []
-  
+    
+    init() {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
+
+//        //Use this if NavigationBarTitle is with displayMode = .inline
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
+    }
   var body: some View {
     NavigationView {
       GeometryReader { geometry in
@@ -21,13 +28,14 @@ struct ContentView: View {
             HStack {
               ZStack {
                 Capsule()
-                  .fill(Color.gray.opacity(0.15))
-                  .frame(width: 45, height: 37)
+                    .fill(Color(.systemGray6))
+                    .frame(width: 45, height: 37)
                 Text(String(self.memos.count))
-                  .font(.system(size: 15.0))
-                  .fontWeight(.bold)
+                    .font(.system(size: 16.0))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.appBlue)
               }
-              .position(x: 110, y: -27)
+              .position(x: 100, y: -27)
             }.frame(height: 5)
             
             ForEach(self.memos) {memo in
@@ -48,14 +56,14 @@ struct ContentView: View {
         VStack {
           Spacer()
           Button(action: {
+            UIImpactFeedbackGenerator().impactOccurred()
           }) {
             NavigationLink(destination: MemoDetailView(memo: Memo())) {
-              ZStack {
-                Circle().fill(AppColor.main).frame(width:60, height: 60)
-                Image(systemName: "plus")
-                  .resizable()
-                  .frame(width: 27, height: 27)
-                  .foregroundColor(Color.white)
+                ZStack {
+                    Circle().fill(Color.appBlue)    .frame(width:44, height: 44)
+                    Image(systemName: "plus")
+                        .foregroundColor(.white)
+                        .font(.system(size: 21, weight: .bold, design: .default))
               }
             }
           }
