@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-
 //enum AppColor {
 //    case main
 //

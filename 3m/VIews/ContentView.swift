@@ -13,11 +13,8 @@ struct ContentView: View {
   @State var memos:Array<Memo> = []
     
     init() {
-        //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
-
-//        //Use this if NavigationBarTitle is with displayMode = .inline
-//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
     }
   var body: some View {
     NavigationView {
@@ -27,13 +24,15 @@ struct ContentView: View {
           VStack(alignment: .leading) {
             HStack {
               ZStack {
-                Capsule()
-                    .fill(Color(.systemGray6))
-                    .frame(width: 45, height: 37)
-                Text(String(self.memos.count))
-                    .font(.system(size: 16.0))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.appBlue)
+                if self.segmentSelection == 0 {
+                    Capsule()
+                        .fill(Color(.systemGray6))
+                        .frame(width: 45, height: 37)
+                    Text(String(self.memos.count))
+                        .font(.system(size: 16.0))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.appBlue)
+                }
               }
               .position(x: 100, y: -27)
             }.frame(height: 5)
@@ -68,8 +67,12 @@ struct ContentView: View {
             }
           }
           .position(x: geometry.size.width - 40, y: geometry.size.height - 100)
-          RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象化", "プロダクト"])
-            .padding(.bottom, 20.0)
+//          RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象化", "プロダクト"])
+//            .padding(.bottom, 20.0)
+            SegmentedControlView(selection: self.$segmentSelection)
+                .frame(height: 44)
+                .padding(.leading, 12)
+                .padding(.trailing, 12)
         }
         }
       }
