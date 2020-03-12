@@ -7,44 +7,27 @@
 //
 
 import SwiftUI
-//enum AppColor {
-//    case main
-//
-//    func color() -> Color {
-//        switch self {
-//        case .main:
-//            return Color(red: 0, green: 178/255, blue: 39/255)
-//        }
-//    }
-//
-//    func uiColor() -> UIColor {
-//        switch self {
-//        case .main:
-//            return UIColor(red: 0, green: 178/255, blue: 39/255, alpha: 100)
-//        }
-//    }
-//}
 
 struct AppColor {
-  static let main:Color = Color(red: 0, green: 178/255, blue: 39/255)
-  static let base:Color = Color(red: 241/255, green: 242/255, blue: 246/255)
-  static let textGray:Color = Color(red: 128/255, green: 128/255, blue: 128/255)
-  static let backcolor:Color = Color(red: 241/255, green: 242/255, blue: 246/255)
+    static let main:Color = Color(red: 0, green: 178/255, blue: 39/255)
+    static let base:Color = Color(red: 241/255, green: 242/255, blue: 246/255)
+    static let textGray:Color = Color(red: 128/255, green: 128/255, blue: 128/255)
+    static let backcolor:Color = Color(red: 241/255, green: 242/255, blue: 246/255)
 }
 extension Color {
-
+    
     func uiColor() -> UIColor {
-
+        
         let components = self.components()
         return UIColor(red: components.r, green: components.g, blue: components.b, alpha: components.a)
     }
-
+    
     private func components() -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-
+        
         let scanner = Scanner(string: self.description.trimmingCharacters(in: CharacterSet.alphanumerics.inverted))
         var hexNumber: UInt64 = 0
         var r: CGFloat = 0.0, g: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
-
+        
         let result = scanner.scanHexInt64(&hexNumber)
         if result {
             r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
