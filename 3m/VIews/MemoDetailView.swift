@@ -66,6 +66,7 @@ struct MemoDetailView: View {
             }) {
                 if self.isShowCompleteButton {
                     Text("完了")
+                        .font(.system(size: 16, weight: .bold, design: .default))
                 }
             }
         )

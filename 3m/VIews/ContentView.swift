@@ -15,6 +15,7 @@ struct ContentView: View {
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
+        UINavigationBar.appearance().tintColor = UIColor.systemIndigo
     }
     func deleteMemo(offsets: IndexSet) {
         let memo = self.memos[offsets.first!]
@@ -72,7 +73,7 @@ struct ContentView: View {
                         .frame(height: 44 + 20)
                 }
             }
-        }
+            }
             .onAppear(perform: {
                 MemoModel.getAllMemo() {memos in
                     self.memos = memos
