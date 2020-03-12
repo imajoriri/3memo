@@ -16,18 +16,19 @@ struct MemoListRowView: View {
     VStack(spacing: 10){
       HStack {
         Text(self.memo.fact)
-          .font(.system(size: 16, weight: .semibold, design: .default))
-          .foregroundColor(.black)
+            .font(.system(size: 16, weight: .semibold, design: .default))
+            .foregroundColor(.black)
+            .lineLimit(1)
         Spacer()
       }
       HStack(spacing:4){
-        if memo.fact.isEmpty {
+        if !memo.fact.isEmpty {
           MemoTagView(tagText: "事実", imageName: "pencil", color: .appBlue)
         }
-        if memo.abstruct.isEmpty {
+        if !memo.abstruct.isEmpty {
           MemoTagView(tagText: "抽象化", imageName: "lightbulb", color: .appOrange)
         }
-        if memo.product.isEmpty {
+        if !memo.product.isEmpty {
           MemoTagView(tagText: "プロダクト", imageName: "desktopcomputer", color: .appGreen)
         }
         Spacer()
