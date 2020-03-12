@@ -24,7 +24,7 @@ struct SegmentedControlView: UIViewRepresentable {
         segmentControl.addTarget(context.coordinator, action: #selector(Coordinator.updateIndex(sender:)), for: .valueChanged)
         return segmentControl
     }
-
+    
     func updateUIView(_ segmentControl: BetterSegmentedControl, context: Context) {
         segmentControl.setIndex(selection)
     }
