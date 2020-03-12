@@ -65,7 +65,7 @@ struct ContentView: View {
                             }.padding(.trailing,16)
                         }
                         .frame(height: 40)
-                        .background(Color.white)
+                        .background(Color(UIColor.systemBackground))
                     }
                     VStack {
                         Spacer()
