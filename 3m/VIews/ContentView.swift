@@ -16,39 +16,27 @@ struct ContentView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemIndigo]
     }
+    func deleteMemo(offsets: IndexSet) {
+        let memo = self.memos[offsets.first!]
+        MemoModel.delete(memo: memo)
+    }
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
                 ZStack {
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                ZStack {
-                                    if self.segmentSelection == 0 {
-                                        Capsule()
-                                            .fill(Color(.systemGray6))
-                                            .frame(width: 45, height: 37)
-                                        Text(String(self.memos.count))
-                                            .font(.system(size: 16.0))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color.appBlue)
-                                    }
-                                }
-                                .position(x: 100, y: -27)
-                            }.frame(height: 5)
-                            
-                            ForEach(self.memos) {memo in
+                    List {
+                        ForEach(self.memos) {memo in
+                            VStack {
                                 NavigationLink(destination: MemoDetailView(memo: memo)) {
-                                    Group {
-                                        MemoListRowView(memo: memo)
-                                            .navigationBarBackButtonHidden(true)
-                                    }
+                                    EmptyView()
                                 }
-                                Divider()
+                                Group {
+                                    MemoListRowView(memo: memo)
+                                        .navigationBarBackButtonHidden(true)
+                                }
                             }
                         }
-                        .padding(.horizontal)
-                        
+                        .onDelete(perform: self.deleteMemo)
                     }
                     .navigationBarTitle(Text("メモ"))
                     
@@ -67,8 +55,7 @@ struct ContentView: View {
                             }
                         }
                         .position(x: geometry.size.width - 40, y: geometry.size.height - 100)
-                        //          RoundSegmentView(selection: self.$segmentSelection, labels: ["全て", "事実", "抽象化", "プロダクト"])
-                        //            .padding(.bottom, 20.0)
+                        
                         SegmentedControlView(selection: self.$segmentSelection)
                             .frame(height: 44)
                             .padding(.leading, 12)
