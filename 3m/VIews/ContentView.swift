@@ -21,6 +21,30 @@ struct ContentView: View {
         let memo = self.memos[offsets.first!]
         MemoModel.delete(memo: memo)
     }
+    func isShowMemo(memo:Memo) -> Bool {
+        switch self.segmentSelection {
+        case 0:
+            return true
+        case 1:
+            if !memo.fact.isEmpty {
+                return true
+            }
+            return false
+        case 2:
+            if !memo.abstruct.isEmpty {
+                return true
+            }
+            return false
+        case 3:
+            if !memo.product.isEmpty {
+                return true
+            }
+            return false
+        default:
+            return true
+        }
+    }
+
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -28,13 +52,15 @@ struct ContentView: View {
                     VStack{
                         List {
                             ForEach(self.memos) {memo in
-                                VStack {
-                                    NavigationLink(destination: MemoDetailView(memo: memo)) {
-                                        EmptyView()
-                                    }
-                                    Group {
-                                        MemoListRowView(memo: memo)
-                                            .navigationBarBackButtonHidden(true)
+                                if self.isShowMemo(memo: memo) {
+                                    VStack {
+                                        NavigationLink(destination: MemoDetailView(memo: memo)) {
+                                            EmptyView()
+                                        }
+                                        Group {
+                                            MemoListRowView(memo: memo)
+                                                .navigationBarBackButtonHidden(true)
+                                        }
                                     }
                                 }
                             }

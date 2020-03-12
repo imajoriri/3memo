@@ -15,7 +15,7 @@ struct MemoListRowView: View {
     var body: some View {
         VStack(spacing: 10){
             HStack {
-                Text(self.memo.fact)
+                Text(self.memo.displayTitle())
                     .font(.system(size: 16, weight: .semibold, design: .default))
                     .foregroundColor(.black)
                     .lineLimit(1)

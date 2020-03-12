@@ -45,6 +45,19 @@ struct Memo: Identifiable {
         
         return randomString
     }
+    
+    func displayTitle() -> String {
+        if !self.fact.isEmpty {
+            return self.fact
+        }
+        if !self.abstruct.isEmpty {
+            return self.abstruct
+        }
+        if !self.product.isEmpty {
+            return self.product
+        }
+        return ""
+    }
 }
 
 class MemoModel {

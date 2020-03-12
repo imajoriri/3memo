@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		069043598CB9B6131050D47E /* Pods_3m.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5ABB4164CC7AF81011E3540 /* Pods_3m.framework */; };
+		4725664D241A2DDA00E7A638 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4725664C241A2DDA00E7A638 /* GoogleService-Info.plist */; };
 		47AD330124162228002FEBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD330024162228002FEBFC /* AppDelegate.swift */; };
 		47AD330324162228002FEBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD330224162228002FEBFC /* SceneDelegate.swift */; };
 		47AD330624162228002FEBFC /* _m.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47AD330424162228002FEBFC /* _m.xcdatamodeld */; };
@@ -31,7 +32,6 @@
 		F222F3192419BF390056C8C5 /* BetterSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = F222F3182419BF390056C8C5 /* BetterSegmentedControl */; };
 		F222F31C2419C27A0056C8C5 /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F222F31B2419C27A0056C8C5 /* SegmentedControlView.swift */; };
 		F26735142419E46800D9A645 /* MemoDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26735132419E46800D9A645 /* MemoDetailSectionView.swift */; };
-		F2CEB266241942EB0063B351 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CEB265241942EB0063B351 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,7 @@
 /* Begin PBXFileReference section */
 		114602CE221E479488AD48E5 /* Pods-3mTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3mTests.debug.xcconfig"; path = "Target Support Files/Pods-3mTests/Pods-3mTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C6C459B1708850105BF4504 /* Pods-3m.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3m.debug.xcconfig"; path = "Target Support Files/Pods-3m/Pods-3m.debug.xcconfig"; sourceTree = "<group>"; };
+		4725664C241A2DDA00E7A638 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47AD32FD24162228002FEBFC /* 3m.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3m.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47AD330024162228002FEBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47AD330224162228002FEBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		DF59B7F9DBB62D3F7FCBD1CD /* Pods-3mTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3mTests.release.xcconfig"; path = "Target Support Files/Pods-3mTests/Pods-3mTests.release.xcconfig"; sourceTree = "<group>"; };
 		F222F31B2419C27A0056C8C5 /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		F26735132419E46800D9A645 /* MemoDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailSectionView.swift; sourceTree = "<group>"; };
-		F2CEB265241942EB0063B351 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F5ABB4164CC7AF81011E3540 /* Pods_3m.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3m.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD845A86B9E319924B709BC4 /* Pods-3m-3mUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3m-3mUITests.debug.xcconfig"; path = "Target Support Files/Pods-3m-3mUITests/Pods-3m-3mUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,7 +144,7 @@
 		47AD32FF24162228002FEBFC /* 3m */ = {
 			isa = PBXGroup;
 			children = (
-				F2CEB265241942EB0063B351 /* GoogleService-Info.plist */,
+				4725664C241A2DDA00E7A638 /* GoogleService-Info.plist */,
 				47AD330024162228002FEBFC /* AppDelegate.swift */,
 				47AD330224162228002FEBFC /* SceneDelegate.swift */,
 				47AD33372416347D002FEBFC /* AppColor.swift */,
@@ -350,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47AD33102416222A002FEBFC /* LaunchScreen.storyboard in Resources */,
-				F2CEB266241942EB0063B351 /* GoogleService-Info.plist in Resources */,
+				4725664D241A2DDA00E7A638 /* GoogleService-Info.plist in Resources */,
 				47AD330D2416222A002FEBFC /* Preview Assets.xcassets in Resources */,
 				47AD330A2416222A002FEBFC /* Assets.xcassets in Resources */,
 			);
@@ -668,7 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.IGMLab.3memo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IGMLab.3memo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -689,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.IGMLab.3memo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IGMLab.3memo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
