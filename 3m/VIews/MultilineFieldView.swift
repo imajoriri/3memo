@@ -26,7 +26,7 @@ struct MultilineFieldView: UIViewRepresentable {
         let textView = UITextView()
         textView.delegate = context.coordinator
         textView.text = text
-        textView.font = UIFont.systemFont(ofSize: CGFloat(16))
+        textView.font = UIFont.systemFont(ofSize: CGFloat(17))
         return textView
     }
 

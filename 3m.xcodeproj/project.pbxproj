@@ -30,6 +30,7 @@
 		F1393A2C7FB693EB992A1681 /* Pods_3m_3mUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB385F10AD686F46D8F9A329 /* Pods_3m_3mUITests.framework */; };
 		F222F3192419BF390056C8C5 /* BetterSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = F222F3182419BF390056C8C5 /* BetterSegmentedControl */; };
 		F222F31C2419C27A0056C8C5 /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F222F31B2419C27A0056C8C5 /* SegmentedControlView.swift */; };
+		F26735142419E46800D9A645 /* MemoDetailSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26735132419E46800D9A645 /* MemoDetailSectionView.swift */; };
 		F2CEB266241942EB0063B351 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CEB265241942EB0063B351 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		CE884CFE078FAD62E5D03230 /* Pods-3m.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3m.release.xcconfig"; path = "Target Support Files/Pods-3m/Pods-3m.release.xcconfig"; sourceTree = "<group>"; };
 		DF59B7F9DBB62D3F7FCBD1CD /* Pods-3mTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3mTests.release.xcconfig"; path = "Target Support Files/Pods-3mTests/Pods-3mTests.release.xcconfig"; sourceTree = "<group>"; };
 		F222F31B2419C27A0056C8C5 /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
+		F26735132419E46800D9A645 /* MemoDetailSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailSectionView.swift; sourceTree = "<group>"; };
 		F2CEB265241942EB0063B351 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F5ABB4164CC7AF81011E3540 /* Pods_3m.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3m.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD845A86B9E319924B709BC4 /* Pods-3m-3mUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3m-3mUITests.debug.xcconfig"; path = "Target Support Files/Pods-3m-3mUITests/Pods-3m-3mUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				47AD333C24167F77002FEBFC /* RoundSegmentView.swift */,
 				47AD333E24171935002FEBFC /* MultilineFieldView.swift */,
 				F222F31B2419C27A0056C8C5 /* SegmentedControlView.swift */,
+				F26735132419E46800D9A645 /* MemoDetailSectionView.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				47AD330124162228002FEBFC /* AppDelegate.swift in Sources */,
 				F222F31C2419C27A0056C8C5 /* SegmentedControlView.swift in Sources */,
 				47AD330624162228002FEBFC /* _m.xcdatamodeld in Sources */,
+				F26735142419E46800D9A645 /* MemoDetailSectionView.swift in Sources */,
 				47AD330824162228002FEBFC /* ContentView.swift in Sources */,
 				47AD333F24171935002FEBFC /* MultilineFieldView.swift in Sources */,
 				47AD33382416347D002FEBFC /* AppColor.swift in Sources */,

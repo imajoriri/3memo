@@ -29,24 +29,21 @@ struct MemoDetailView: View {
     ScrollView {
       
       VStack(alignment: .leading) {
-        Text("事実")
-          .font(.headline).padding(.bottom, -5.0)
+        MemoDetailSectionView(color: .appBlue, imageName: "pencil", title: "事実")
         MultilineFieldView(text: self.$memo.fact, onEditingChanged: {bool in
           self.isShowCompleteButton = bool
           MemoModel.save(memo: self.memo)
         })
           .frame(height: 100)
         
-        Text("抽象的")
-          .font(.headline).padding(.bottom, -5.0).padding(.top, 20)
+        MemoDetailSectionView(color: .appOrange, imageName: "lightbulb", title: "抽象化")
         MultilineFieldView(text: self.$memo.abstruct, onEditingChanged: {bool in
           self.isShowCompleteButton = bool
           MemoModel.save(memo: self.memo)
         })
           .frame(height: 100)
         
-        Text("プロダクト")
-          .font(.headline).padding(.bottom, -5.0).padding(.top, 20)
+        MemoDetailSectionView(color: .appGreen, imageName: "desktopcomputer", title: "プロダクト")
         MultilineFieldView(text: self.$memo.product, onEditingChanged: {bool in
           self.isShowCompleteButton = bool
           MemoModel.save(memo: self.memo)
