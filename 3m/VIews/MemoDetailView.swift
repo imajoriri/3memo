@@ -25,6 +25,14 @@ struct MemoDetailView: View {
     UIApplication.shared.endEditing()
   }
   
+  func saveMemo() {
+    if self.memo.fact.isEmpty && self.memo.abstruct.isEmpty && self.memo.product.isEmpty {
+      MemoModel.delete(memo: self.memo)
+    } else {
+      MemoModel.save(memo: self.memo)
+    }
+  }
+  
   var body: some View {
     ScrollView {
       
@@ -33,7 +41,7 @@ struct MemoDetailView: View {
           .font(.headline).padding(.bottom, -5.0)
         MultilineFieldView(text: self.$memo.fact, onEditingChanged: {bool in
           self.isShowCompleteButton = bool
-          MemoModel.save(memo: self.memo)
+          self.saveMemo()
         })
           .frame(height: 100)
         
@@ -41,7 +49,7 @@ struct MemoDetailView: View {
           .font(.headline).padding(.bottom, -5.0).padding(.top, 20)
         MultilineFieldView(text: self.$memo.abstruct, onEditingChanged: {bool in
           self.isShowCompleteButton = bool
-          MemoModel.save(memo: self.memo)
+          self.saveMemo()
         })
           .frame(height: 100)
         
@@ -49,7 +57,7 @@ struct MemoDetailView: View {
           .font(.headline).padding(.bottom, -5.0).padding(.top, 20)
         MultilineFieldView(text: self.$memo.product, onEditingChanged: {bool in
           self.isShowCompleteButton = bool
-          MemoModel.save(memo: self.memo)
+          self.saveMemo()
         })
           .frame(height: 100)
         
@@ -61,7 +69,7 @@ struct MemoDetailView: View {
     .navigationBarItems(trailing:
       Button(action: {
         self.endEditing()
-        MemoModel.save(memo: self.memo)
+        self.saveMemo()
       }) {
         if self.isShowCompleteButton {
           Text("完了")

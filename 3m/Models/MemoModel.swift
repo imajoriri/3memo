@@ -50,9 +50,27 @@ struct Memo: Identifiable {
 class MemoModel {
   var db:Firestore = Firestore.firestore()
   
+  static func delete(memo: Memo) {
+    let me:UserModel = UserModel.getMe()
+    let db = Firestore.firestore()
+    db.collection("users").document(me.uuid).collection("memos").document(memo.id).delete() { err in
+      if let err = err {
+        print("Error removing document: \(err)")
+      } else {
+        print("Document successfully removed!")
+      }
+    }
+  }
+  
   static func save(memo: Memo) {
     let me:UserModel = UserModel.getMe()
     let db = Firestore.firestore()
+    
+    // すべてからの場合は作成しない
+    // TODO: ここじゃないな
+    if memo.fact.isEmpty && memo.abstruct.isEmpty && memo.product.isEmpty {
+      return
+    }
     
     db.collection("users").document(me.uuid).collection("memos").document(memo.id).setData([
       "fact": memo.fact,
