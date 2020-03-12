@@ -47,6 +47,10 @@ struct ContentView: View {
                             .frame(height: 0.5)
                             .foregroundColor(Color(UIColor.separator))
                         HStack{
+                            Text(String(self.memos.count)+"件のメモ")
+                                .multilineTextAlignment(.center)
+                                .font(.system(size: 14))
+                                .padding(.leading,16)
                             Spacer()
                             Button(action: {
                               UIImpactFeedbackGenerator().impactOccurred()
