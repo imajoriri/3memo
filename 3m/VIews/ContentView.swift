@@ -24,57 +24,60 @@ struct ContentView: View {
         NavigationView {
             GeometryReader { geometry in
                 ZStack {
-                    List {
-                        ForEach(self.memos) {memo in
-                            VStack {
-                                NavigationLink(destination: MemoDetailView(memo: memo)) {
-                                    EmptyView()
-                                }
-                                Group {
-                                    MemoListRowView(memo: memo)
-                                        .navigationBarBackButtonHidden(true)
+                    VStack{
+                        List {
+                            ForEach(self.memos) {memo in
+                                VStack {
+                                    NavigationLink(destination: MemoDetailView(memo: memo)) {
+                                        EmptyView()
+                                    }
+                                    Group {
+                                        MemoListRowView(memo: memo)
+                                            .navigationBarBackButtonHidden(true)
+                                    }
                                 }
                             }
+                            .onDelete(perform: self.deleteMemo)
                         }
-                        .onDelete(perform: self.deleteMemo)
+                        .navigationBarTitle(Text("メモ"))
+                        Spacer()
+                            .frame(height: 0)
+                        Rectangle()
+                            .frame(height: 0.5)
+                            .foregroundColor(Color(UIColor.separator))
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                              UIImpactFeedbackGenerator().impactOccurred()
+                            }) {
+                              NavigationLink(destination: MemoDetailView(memo: Memo())) {
+                                  ZStack {
+                                      Image(systemName: "square.and.pencil")
+                                        .foregroundColor(.appBlue)
+                                        .font(.system(size: 20, weight: .regular, design: .default))
+                                }
+                              }
+                            }.padding(.trailing,16)
+                        }
+                        .frame(height: 40)
+                        .background(Color.white)
                     }
-                    .navigationBarTitle(Text("メモ"))
-                    
                     VStack {
                         Spacer()
-                        Button(action: {
-                            UIImpactFeedbackGenerator().impactOccurred()
-                        }) {
-                            NavigationLink(destination: MemoDetailView(memo: Memo())) {
-                                ZStack {
-                                    Circle().fill(Color.appBlue)    .frame(width:44, height: 44)
-                                    Image(systemName: "plus")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 21, weight: .bold, design: .default))
-                                }
-                            }
-                        }
-                        .position(x: geometry.size.width - 40, y: geometry.size.height - 100)
-                        
                         SegmentedControlView(selection: self.$segmentSelection)
                             .frame(height: 44)
                             .padding(.leading, 12)
                             .padding(.trailing, 12)
-                    }
+                        Spacer()
+                        .frame(height: 44 + 20)
                 }
             }
         }
-        .onAppear(perform: {
-            MemoModel.getAllMemo() {memos in
-                self.memos = memos
-            }
-        })
-        
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+            .onAppear(perform: {
+                MemoModel.getAllMemo() {memos in
+                    self.memos = memos
+                }
+            })
+        }
     }
 }

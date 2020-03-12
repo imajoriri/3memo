@@ -268,7 +268,7 @@ DEPENDENCIES:
   - Firebase/Firestore
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - abseil
     - BoringSSL-GRPC
     - Firebase
