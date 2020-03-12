@@ -51,6 +51,11 @@ struct ContentView: View {
               .padding(.horizontal)
             }
             .navigationBarTitle(Text("メモ"))
+            Spacer()
+                .frame(height: 0)
+            Rectangle()
+                .frame(height: 0.5)
+                .background(Color(.systemGroupedBackground))
             HStack{
                 Spacer()
                 Button(action: {
@@ -58,14 +63,14 @@ struct ContentView: View {
                 }) {
                   NavigationLink(destination: MemoDetailView(memo: Memo())) {
                       ZStack {
-                          Image(systemName: "plus.circle.fill")
+                          Image(systemName: "square.and.pencil")
                             .foregroundColor(.appBlue)
-                            .font(.system(size: 28, weight: .semibold, design: .default))
+                            .font(.system(size: 20, weight: .regular, design: .default))
                     }
                   }
-                }.padding(.trailing,14)
+                }.padding(.trailing,16)
             }
-            .frame(height: 44)
+            .frame(height: 40)
             .background(Color.white)
         }
         VStack {
