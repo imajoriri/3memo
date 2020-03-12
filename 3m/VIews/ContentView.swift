@@ -55,7 +55,7 @@ struct ContentView: View {
                 .frame(height: 0)
             Rectangle()
                 .frame(height: 0.5)
-                .background(Color(.systemGroupedBackground))
+                .foregroundColor(Color(UIColor.separator))
             HStack{
                 Spacer()
                 Button(action: {
