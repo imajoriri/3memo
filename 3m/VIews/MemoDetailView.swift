@@ -19,7 +19,7 @@ extension UIApplication {
 
 struct MemoDetailView: View {
     @State var memo:Memo
-    @State var isShowCompleteButton:Bool = false
+    @State var isShowCompleteButton:Bool = true
     
     private func endEditing() {
         UIApplication.shared.endEditing()
@@ -35,21 +35,21 @@ struct MemoDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 MemoDetailSectionView(color: .appBlue, imageName: "pencil", title: "事実")
-                MultilineFieldView(text: self.$memo.fact, onEditingChanged: {bool in
+                MultilineFieldView(text: self.$memo.fact, openKeyboard: true, onEditingChanged: {bool in
                     self.isShowCompleteButton = bool
                     self.saveMemo()
                 })
                     .frame(height: 100)
         
                 MemoDetailSectionView(color: .appOrange, imageName: "lightbulb", title: "抽象化")
-                MultilineFieldView(text: self.$memo.abstruct, onEditingChanged: {bool in
+                MultilineFieldView(text: self.$memo.abstruct, openKeyboard: false, onEditingChanged: {bool in
                     self.isShowCompleteButton = bool
                     self.saveMemo()
                 })
                     .frame(height: 100)
         
                 MemoDetailSectionView(color: .appGreen, imageName: "desktopcomputer", title: "プロダクト")
-                MultilineFieldView(text: self.$memo.product, onEditingChanged: {bool in
+                MultilineFieldView(text: self.$memo.product, openKeyboard: false, onEditingChanged: {bool in
                     self.isShowCompleteButton = bool
                     self.saveMemo()
                 })

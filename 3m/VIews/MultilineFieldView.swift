@@ -10,11 +10,13 @@ import SwiftUI
 
 struct MultilineFieldView: UIViewRepresentable {
     @Binding var text: String
+    var openKeyboard:Bool
     
     let onEditingChanged: (Bool) -> Void
     
-    init(text: Binding<String>, onEditingChanged: @escaping (Bool) -> Void = {_ in}) {
+    init(text: Binding<String>, openKeyboard:Bool = false, onEditingChanged: @escaping (Bool) -> Void = {_ in}) {
         self._text = text
+        self.openKeyboard = openKeyboard
         self.onEditingChanged = onEditingChanged
     }
     
@@ -27,6 +29,9 @@ struct MultilineFieldView: UIViewRepresentable {
         textView.delegate = context.coordinator
         textView.text = text
         textView.font = UIFont.systemFont(ofSize: CGFloat(17))
+        if self.openKeyboard {
+            textView.becomeFirstResponder()
+        }
         return textView
     }
     
